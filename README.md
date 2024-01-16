@@ -279,9 +279,9 @@ const Axios: AxiosInstance = axios.create({
     }
 });
 
-export const getAPIbyAxios = async <T>(basicURL: string, params: CommonRequest): Promise<T | null> {
+export const getAPIbyAxios = async <T>(baseURL: string, params: CommonRequest): Promise<T | null> {
     try{
-        const {status, data}: AxiosResponse<T> = await getAPIbyAxios.post(basicURL, params); {
+        const {status, data}: AxiosResponse<T> = await getAPIbyAxios.post(baseURL, params); {
             catch(e){
                 console.log(e);
             }
@@ -302,7 +302,7 @@ const fetchData = useCallback(async() => {
         mood: '슬픔',
         cardId: 1,
     }
-    const data = await getAPIbyAxios<UserResponse>(path, params);
+    const data = await getAPIbyAxios<UserResponse>(baseURL params);
     //data.list에서 forEach, map 등 다양한 메소드 사용하여 각 배열의 인자에도 접근 가능.
 }, []);
 ```
